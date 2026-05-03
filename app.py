@@ -172,10 +172,10 @@ function showPage(id) {
             font-weight:bold;">
             💬 Chat on WhatsApp
         </a>
-  <br/>
+  <br/> <br/>
             <div style="margin-top:10px;">
                 <iframe
-                    src="https://www.google.com/maps?q=11.5941,78.6014&z=14&output=embed"
+                    src="https://www.google.com/maps?q=11.5967,78.5050&z=14&output=embed"
                     width="100%"
                     height="200">
                 </iframe>
