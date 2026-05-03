@@ -54,7 +54,6 @@ html_code = """
         margin: 5px 10px;
         text-decoration: none;
         font-size: 14px;
-        display: inline-block;
     }
 
     nav a:hover {
@@ -100,26 +99,18 @@ html_code = """
         color: white;
         border-radius: 6px;
         text-decoration: none;
-        font-size: 14px;
     }
 
-    /* Desktop view */
+    iframe {
+        border-radius: 10px;
+    }
+
+    /* Desktop */
     @media (min-width: 768px) {
-        header h1 {
-            font-size: 34px;
-        }
-
-        header p {
-            font-size: 18px;
-        }
-
-        nav a {
-            font-size: 15px;
-        }
-
-        .card {
-            padding: 20px;
-        }
+        header h1 { font-size: 34px; }
+        header p { font-size: 18px; }
+        nav a { font-size: 15px; }
+        .card { padding: 20px; }
     }
 </style>
 
@@ -161,9 +152,21 @@ html_code = """
         <h2>Contact</h2>
         <p>📞 +91-8667250719</p>
         <p>📧 jprajkamal@gmail.com</p>
+        <p>📍 Attur, Salem District, Tamil Nadu</p>
+
         <a class="whatsapp" href="https://wa.me/918667250719" target="_blank">
-            Chat on WhatsApp
+            💬 Chat on WhatsApp
         </a>
+
+        <!-- Google Map with exact coordinates -->
+        <div style="margin-top:15px;">
+            <iframe
+                src="https://www.google.com/maps?q=11.5941,78.6014&z=14&output=embed"
+                width="100%"
+                height="250"
+                loading="lazy">
+            </iframe>
+        </div>
     </div>
 
 </div>
@@ -172,4 +175,4 @@ html_code = """
 </html>
 """
 
-st.components.v1.html(html_code, height=750, scrolling=True)
+st.components.v1.html(html_code, height=900, scrolling=True)
