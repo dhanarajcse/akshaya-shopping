@@ -109,14 +109,14 @@ function showPage(id) {
                 With a strong academic background and a commitment to excellence, he provides 
                 reliable and result-oriented guidance to individuals and families.
             </p>
-            <p><p/>
+             <br/><br/>
             
             <p>
                 He believes in building long-term relationships based on trust, transparency, 
                 and professionalism. His approach focuses on understanding each client’s unique 
                 needs and delivering customized solutions that ensure financial security and growth.
             </p>
-              <p><p/>
+              <br/><br/>
             <p>
                 With in-depth knowledge of market trends and financial planning, he empowers 
                 clients to make confident decisions in property investments, insurance coverage, 
@@ -136,14 +136,14 @@ function showPage(id) {
                 From identifying the right opportunities to handling documentation, we ensure
                 a smooth and transparent process.
             </p>
-              <p><p/>
+             <br/><br/>
 
             <h3>📄 Insurance Planning & Policies</h3>
             <p>
                 We offer tailored insurance solutions to protect your future and secure your family.
                 Our services include policy selection and choosing the right coverage.
             </p>
-            <p><p/>
+              <br/><br/>
             <h3>💹 Investment & Financial Guidance</h3>
             <p>
                 We help clients build and manage their wealth through strategic financial planning
@@ -171,7 +171,7 @@ function showPage(id) {
             font-weight:bold;">
             💬 Chat on WhatsApp
         </a>
-
+  <br/><br/>
             <div style="margin-top:10px;">
                 <iframe
                     src="https://www.google.com/maps?q=11.5941,78.6014&z=14&output=embed"
