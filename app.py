@@ -10,6 +10,10 @@ html_code = """
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -39,16 +43,22 @@ html_code = """
 
     nav {
         background: #34495e;
-        padding: 8px;
+        padding: 10px;
         text-align: center;
+        position: sticky;
+        top: 0;
     }
 
     nav a {
         color: white;
         margin: 5px 10px;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 14px;
         display: inline-block;
+    }
+
+    nav a:hover {
+        color: #1abc9c;
     }
 
     .container {
@@ -117,25 +127,28 @@ html_code = """
 
 <body>
 
-<header>
+<header id="home">
     <h1>J P Aadhitya Murugan</h1>
     <p>Real Estate | Insurance | Investment Consultant</p>
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 <div class="container">
 
     <div class="card">
         <h2>About</h2>
-        <p>Experienced professional offering trusted services in real estate, insurance, and investment consulting.</p>
+        <p>
+            Experienced professional offering trusted services in real estate,
+            insurance, and investment consulting.
+        </p>
     </div>
 
-    <div class="card">
+    <div class="card" id="services">
         <h2>Services</h2>
         <ul>
             <li>🏡 Real Estate Buying & Selling</li>
@@ -144,7 +157,7 @@ html_code = """
         </ul>
     </div>
 
-    <div class="card">
+    <div class="card" id="contact">
         <h2>Contact</h2>
         <p>📞 +91-8667250719</p>
         <p>📧 jprajkamal@gmail.com</p>
@@ -159,5 +172,4 @@ html_code = """
 </html>
 """
 
-# Optimized height (no extra white space)
 st.components.v1.html(html_code, height=750, scrolling=True)
