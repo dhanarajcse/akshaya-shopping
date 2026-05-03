@@ -24,12 +24,12 @@ html_code = """
     header {
         background: linear-gradient(135deg, #2c3e50, #4ca1af);
         color: white;
-        padding: 30px 15px;
+        padding: 25px 10px;
         text-align: center;
     }
 
     header h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
     header p {
@@ -39,7 +39,7 @@ html_code = """
 
     nav {
         background: #34495e;
-        padding: 10px;
+        padding: 8px;
         text-align: center;
     }
 
@@ -47,7 +47,7 @@ html_code = """
         color: white;
         margin: 5px 10px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 13px;
         display: inline-block;
     }
 
@@ -55,20 +55,20 @@ html_code = """
         width: 100%;
         max-width: 900px;
         margin: auto;
-        padding: 15px;
+        padding: 10px;
     }
 
     .card {
         background: white;
         padding: 15px;
-        margin: 15px 0;
+        margin: 12px 0;
         border-radius: 12px;
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 12px rgba(0,0,0,0.1);
     }
 
     h2 {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         color: #2c3e50;
     }
 
@@ -84,7 +84,7 @@ html_code = """
     .whatsapp {
         display: block;
         text-align: center;
-        margin-top: 15px;
+        margin-top: 12px;
         padding: 10px;
         background: #25D366;
         color: white;
@@ -96,7 +96,7 @@ html_code = """
     /* Desktop view */
     @media (min-width: 768px) {
         header h1 {
-            font-size: 36px;
+            font-size: 34px;
         }
 
         header p {
@@ -104,7 +104,7 @@ html_code = """
         }
 
         nav a {
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .card {
@@ -159,5 +159,5 @@ html_code = """
 </html>
 """
 
-# Increased height and enabled scrolling
-st.components.v1.html(html_code, height=1200, scrolling=True)
+# Optimized height (no extra white space)
+st.components.v1.html(html_code, height=750, scrolling=True)
