@@ -33,7 +33,7 @@ html_code = """
     }
 
     header h1 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     header p {
@@ -76,18 +76,25 @@ html_code = """
     }
 
     h2 {
-        font-size: 18px;
-        margin-bottom: 8px;
+        font-size: 20px;
+        margin-bottom: 10px;
         color: #2c3e50;
+    }
+
+    h3 {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #34495e;
     }
 
     p, li {
         font-size: 14px;
-        line-height: 1.5;
+        line-height: 1.6;
     }
 
     ul {
         padding-left: 15px;
+        margin-top: 5px;
     }
 
     .whatsapp {
@@ -105,9 +112,8 @@ html_code = """
         border-radius: 10px;
     }
 
-    /* Desktop */
     @media (min-width: 768px) {
-        header h1 { font-size: 34px; }
+        header h1 { font-size: 36px; }
         header p { font-size: 18px; }
         nav a { font-size: 15px; }
         .card { padding: 20px; }
@@ -120,7 +126,7 @@ html_code = """
 
 <header id="home">
     <h1>J P Aadhitya Murugan</h1>
-    <p>Real Estate | Insurance | Investment Consultant</p>
+    <p>M.Sc, B.Ed | Real Estate | Insurance | Investment Consultant</p>
 </header>
 
 <nav>
@@ -131,25 +137,70 @@ html_code = """
 
 <div class="container">
 
+    <!-- ABOUT -->
     <div class="card">
         <h2>About</h2>
         <p>
-            Experienced professional offering trusted services in real estate,
-            insurance, and investment consulting.
+            J P Aadhitya Murugan, M.Sc, B.Ed., is a dedicated and experienced professional 
+            specializing in real estate, insurance planning, and investment consulting. 
+            With a strong academic background and a commitment to excellence, he provides 
+            reliable and result-oriented guidance to individuals and families.
+        </p>
+        <p>
+            He believes in building long-term relationships based on trust, transparency, 
+            and professionalism. His approach focuses on understanding each client’s unique 
+            needs and delivering customized solutions that ensure financial security and growth.
+        </p>
+        <p>
+            With in-depth knowledge of market trends and financial planning, he empowers 
+            clients to make confident decisions in property investments, insurance coverage, 
+            and wealth management.
         </p>
     </div>
 
+    <!-- SERVICES -->
     <div class="card" id="services">
         <h2>Services</h2>
+
+        <h3>🏡 Real Estate Services</h3>
+        <p>
+            We provide complete support for buying, selling, and investing in properties. 
+            From identifying the right opportunities to handling documentation, we ensure 
+            a smooth and transparent process.
+        </p>
+
+        <h3>📄 Insurance Planning & Policies</h3>
+        <p>
+            We offer tailored insurance solutions to protect your future and secure your family. 
+            Our services include policy selection, comparison, and assistance in choosing the 
+            right coverage based on your needs.
+        </p>
+
+        <h3>💹 Investment & Financial Guidance</h3>
+        <p>
+            We help clients build and manage their wealth through strategic financial planning. 
+            Our guidance includes investment strategies, risk assessment, and long-term financial 
+            planning to achieve sustainable growth.
+        </p>
+
+        <h3>⭐ Why Choose Us?</h3>
         <ul>
-            <li>🏡 Real Estate Buying & Selling</li>
-            <li>📄 Insurance Planning & Policies</li>
-            <li>💹 Investment & Financial Guidance</li>
+            <li>Trusted and professional service</li>
+            <li>Personalized consultation</li>
+            <li>Transparent process</li>
+            <li>End-to-end support</li>
+            <li>Long-term client relationships</li>
         </ul>
     </div>
 
+    <!-- CONTACT -->
     <div class="card" id="contact">
         <h2>Contact</h2>
+        <p>
+            We are here to assist you with all your real estate, insurance, and investment needs.
+            Feel free to reach out for personalized consultation and expert guidance.
+        </p>
+
         <p>📞 +91-8667250719</p>
         <p>📧 jprajkamal@gmail.com</p>
         <p>📍 Attur, Salem District, Tamil Nadu</p>
@@ -158,7 +209,6 @@ html_code = """
             💬 Chat on WhatsApp
         </a>
 
-        <!-- Google Map with exact coordinates -->
         <div style="margin-top:15px;">
             <iframe
                 src="https://www.google.com/maps?q=11.5941,78.6014&z=14&output=embed"
