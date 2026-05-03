@@ -88,7 +88,7 @@ function showPage(id) {
 
 <header>
     <h1>J P Aadhitya Murugan</h1>
-    <p>M.Sc, B.Ed | Real Estate | Insurance | Investment Consultant</p>
+    <p>Real Estate | Insurance | Investment Consultant</p>
 </header>
 
 <nav>
@@ -109,11 +109,14 @@ function showPage(id) {
                 With a strong academic background and a commitment to excellence, he provides 
                 reliable and result-oriented guidance to individuals and families.
             </p>
+            <p><p/>
+            
             <p>
                 He believes in building long-term relationships based on trust, transparency, 
                 and professionalism. His approach focuses on understanding each client’s unique 
                 needs and delivering customized solutions that ensure financial security and growth.
             </p>
+              <p><p/>
             <p>
                 With in-depth knowledge of market trends and financial planning, he empowers 
                 clients to make confident decisions in property investments, insurance coverage, 
@@ -133,13 +136,14 @@ function showPage(id) {
                 From identifying the right opportunities to handling documentation, we ensure
                 a smooth and transparent process.
             </p>
+              <p><p/>
 
             <h3>📄 Insurance Planning & Policies</h3>
             <p>
                 We offer tailored insurance solutions to protect your future and secure your family.
                 Our services include policy selection and choosing the right coverage.
             </p>
-
+            <p><p/>
             <h3>💹 Investment & Financial Guidance</h3>
             <p>
                 We help clients build and manage their wealth through strategic financial planning
@@ -157,9 +161,16 @@ function showPage(id) {
             <p>📧 jprajkamal@gmail.com</p>
             <p>📍 Attur, Salem District, Tamil Nadu</p>
 
-            <a href="https://wa.me/918667250719" target="_blank">
-                Chat on WhatsApp
-            </a>
+         <a href="https://wa.me/918667250719" target="_blank" style="
+            display:inline-block;
+            background:#25D366;
+            color:white;
+            padding:10px 15px;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:bold;">
+            💬 Chat on WhatsApp
+        </a>
 
             <div style="margin-top:10px;">
                 <iframe
