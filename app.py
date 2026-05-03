@@ -1,10 +1,22 @@
-from flask import Flask, render_template
+import streamlit as st
 
-app = Flask(__name__)
+st.set_page_config(page_title="JP Aadhitya Consultancy", layout="centered")
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+st.title("J P Aadhitya Murugan")
+st.caption("M.Sc, B.Ed")
 
-if __name__ == '__main__':
-    app.run(debug=True)
+st.header("About")
+st.write("Experienced professional offering services in real estate, insurance, and investment consulting.")
+
+st.header("Services")
+st.markdown("""
+- 🏡 Real Estate Buying & Selling  
+- 📄 Insurance Planning & Policies  
+- 💹 Investment & Financial Guidance  
+""")
+
+st.header("Contact")
+st.write("📞 +91-8667250719")
+st.write("📧 jprajkamal@gmail.com")
+
+st.link_button("💬 Chat on WhatsApp", "https://wa.me/918667250719")
