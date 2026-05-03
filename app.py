@@ -103,20 +103,21 @@ function showPage(id) {
     <div id="about" class="page active">
         <div class="card">
             <h2>About</h2>
+            <br/>
             <p>
                 J P Aadhitya Murugan, M.Sc, B.Ed., is a dedicated and experienced professional 
                 specializing in real estate, insurance planning, and investment consulting. 
                 With a strong academic background and a commitment to excellence, he provides 
                 reliable and result-oriented guidance to individuals and families.
             </p>
-             <br/><br/>
+             <br/>
             
             <p>
                 He believes in building long-term relationships based on trust, transparency, 
                 and professionalism. His approach focuses on understanding each client’s unique 
                 needs and delivering customized solutions that ensure financial security and growth.
             </p>
-              <br/><br/>
+              <br/>
             <p>
                 With in-depth knowledge of market trends and financial planning, he empowers 
                 clients to make confident decisions in property investments, insurance coverage, 
@@ -129,21 +130,21 @@ function showPage(id) {
     <div id="services" class="page">
         <div class="card">
             <h2>Services</h2>
-
+<br/>
             <h3>🏡 Real Estate Services</h3>
             <p>
                 We provide complete support for buying, selling, and investing in properties.
                 From identifying the right opportunities to handling documentation, we ensure
                 a smooth and transparent process.
             </p>
-             <br/><br/>
+             <br/>
 
             <h3>📄 Insurance Planning & Policies</h3>
             <p>
                 We offer tailored insurance solutions to protect your future and secure your family.
                 Our services include policy selection and choosing the right coverage.
             </p>
-              <br/><br/>
+              <br/>
             <h3>💹 Investment & Financial Guidance</h3>
             <p>
                 We help clients build and manage their wealth through strategic financial planning
@@ -156,7 +157,7 @@ function showPage(id) {
     <div id="contact" class="page">
         <div class="card">
             <h2>Contact</h2>
-
+            <br/>
             <p>📞 +91-8667250719</p>
             <p>📧 jprajkamal@gmail.com</p>
             <p>📍 Attur, Salem District, Tamil Nadu</p>
@@ -171,7 +172,7 @@ function showPage(id) {
             font-weight:bold;">
             💬 Chat on WhatsApp
         </a>
-  <br/><br/>
+  <br/>
             <div style="margin-top:10px;">
                 <iframe
                     src="https://www.google.com/maps?q=11.5941,78.6014&z=14&output=embed"
