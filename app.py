@@ -68,7 +68,7 @@ html_code = """
 
 <header>
     <h1>J P Aadhitya Murugan</h1>
-    <p>M.Sc, B.Ed | Real Estate | Insurance | Investment Consultant</p>
+    <p>Real Estate | Insurance | Investment Consultant</p>
 </header>
 
 <nav>
