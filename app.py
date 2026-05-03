@@ -6,23 +6,35 @@ html_code = """
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(to right, #eef2f3, #dfe9f3);
-    }
 
-    html, body {
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
         margin: 0;
         padding: 0;
-        overflow: hidden;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(to right, #eef2f3, #dfe9f3);
     }
 
     header {
         background: linear-gradient(135deg, #2c3e50, #4ca1af);
         color: white;
-        padding: 40px;
+        padding: 30px 15px;
         text-align: center;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header p {
+        font-size: 14px;
+        margin-top: 5px;
     }
 
     nav {
@@ -33,35 +45,74 @@ html_code = """
 
     nav a {
         color: white;
-        margin: 0 15px;
+        margin: 5px 10px;
         text-decoration: none;
-        font-weight: bold;
+        font-size: 14px;
+        display: inline-block;
     }
 
     .container {
+        width: 100%;
         max-width: 900px;
         margin: auto;
-        padding: 20px;
+        padding: 15px;
     }
 
     .card {
         background: white;
-        padding: 20px;
-        margin: 20px 0;
+        padding: 15px;
+        margin: 15px 0;
         border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #2c3e50;
+    }
+
+    p, li {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    ul {
+        padding-left: 15px;
     }
 
     .whatsapp {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        padding: 10px;
         background: #25D366;
         color: white;
-        padding: 10px 15px;
         border-radius: 6px;
         text-decoration: none;
-        display: inline-block;
-        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    /* Desktop view */
+    @media (min-width: 768px) {
+        header h1 {
+            font-size: 36px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav a {
+            font-size: 16px;
+        }
+
+        .card {
+            padding: 20px;
+        }
     }
 </style>
+
 </head>
 
 <body>
@@ -108,4 +159,5 @@ html_code = """
 </html>
 """
 
-st.components.v1.html(html_code, height=900, scrolling=False)
+# Increased height and enabled scrolling
+st.components.v1.html(html_code, height=1200, scrolling=True)
