@@ -59,7 +59,7 @@ html_code = """
     }
 
     .container{
-        max-width:1100px;
+        max-width:1200px;
         margin:auto;
         padding:20px;
     }
@@ -105,7 +105,7 @@ html_code = """
 
     .products-grid{
         display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
         gap:25px;
         margin-top:20px;
     }
@@ -118,6 +118,7 @@ html_code = """
         transition:all 0.3s ease;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
     }
 
     .product:hover{
@@ -139,6 +140,22 @@ html_code = """
         justify-content: space-between;
     }
 
+    .product-details{
+        margin-bottom: 15px;
+    }
+
+    .product-title{
+        font-size:1.15rem;
+        font-weight:700;
+        margin-bottom:8px;
+    }
+
+    .product-desc{
+        font-size:0.9rem; 
+        color:#666;
+        line-height:1.4;
+    }
+
     .price{
         font-size:24px;
         font-weight:bold;
@@ -155,6 +172,12 @@ html_code = """
         color:white;
         font-weight:600;
         cursor:pointer;
+        font-size:15px;
+        transition: opacity 0.2s;
+    }
+
+    .buy-btn:hover{
+        opacity:0.9;
     }
 
     .badge{
@@ -165,10 +188,14 @@ html_code = """
         color:white;
         padding:6px 12px;
         border-radius:20px;
-        font-size:12px;
+        font-size:11px;
         font-weight:bold;
         z-index: 10;
     }
+
+    .badge.blue { background: #2980b9; }
+    .badge.red { background: #c0392b; }
+    .badge.purple { background: #8e44ad; }
 
     .product-wrapper{
         position:relative;
@@ -206,6 +233,7 @@ function showPage(id) {
 
 <div class="container">
 
+    <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="card">
             <h2>Welcome to Akshaya Shopping</h2>
@@ -228,60 +256,199 @@ function showPage(id) {
         </div>
     </div>
 
+    <!-- PRODUCTS PAGE (10 PRODUCTS) -->
     <div id="products" class="page">
         <div class="card">
             <h2 style="text-align:center; font-size:32px; margin-bottom:10px;">🛒 Featured Products</h2>
             <p style="text-align:center; color:#666; margin-bottom:25px;">Best Selling Products at Affordable Prices</p>
 
             <div class="products-grid">
+                
+                <!-- Product 1: Rice -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">BEST SELLER</span>
                         <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80">
                     </div>
                     <div class="product-content">
-                        <div>
-                            <h3 style="font-size:1.2rem">🍚 Premium Rice - 5 KG</h3>
-                            <p style="font-size:0.9rem; color:#666">High-quality premium rice suitable for daily cooking.</p>
+                        <div class="product-details">
+                            <div class="product-title">🍚 Premium Rice - 5 KG</div>
+                            <div class="product-desc">High-quality traditional premium rice ideal for everyday healthy cooking.</div>
                         </div>
-                        <div class="price">₹450</div>
-                        <button class="buy-btn">View Product</button>
+                        <div>
+                            <div class="price">₹450</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Product 2: Sunflower Oil -->
                 <div class="product">
                     <div class="product-wrapper">
-                        <span class="badge">HOT DEAL</span>
+                        <span class="badge red">HOT DEAL</span>
                         <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=600&q=80">
                     </div>
                     <div class="product-content">
-                        <div>
-                            <h3 style="font-size:1.2rem">🛢️ Sunflower Oil - 1L</h3>
-                            <p style="font-size:0.9rem; color:#666">Pure refined sunflower oil for healthy cooking.</p>
+                        <div class="product-details">
+                            <div class="product-title">🛢️ Sunflower Oil - 1L</div>
+                            <div class="product-desc">Pure, multi-filtered refined sunflower oil rich in natural vitamins.</div>
                         </div>
-                        <div class="price">₹160</div>
-                        <button class="buy-btn">View Product</button>
+                        <div>
+                            <div class="price">₹160</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Product 3: Coffee Powder -->
                 <div class="product">
                     <div class="product-wrapper">
-                        <span class="badge">NEW</span>
+                        <span class="badge blue">NEW</span>
                         <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80">
                     </div>
                     <div class="product-content">
-                        <div>
-                            <h3 style="font-size:1.2rem">☕ Premium Coffee</h3>
-                            <p style="font-size:0.9rem; color:#666">Freshly packed aromatic filter coffee powder.</p>
+                        <div class="product-details">
+                            <div class="product-title">☕ Premium Filter Coffee</div>
+                            <div class="product-desc">Aromatic fine-ground South Indian blend for a robust and rich morning flavor.</div>
                         </div>
-                        <div class="price">₹220</div>
-                        <button class="buy-btn">View Product</button>
+                        <div>
+                            <div class="price">₹220</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Product 4: Whole Wheat Atta -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge">POPULAR</span>
+                        <img src="https://images.unsplash.com/photo-1574316071802-0d684efa7bf5?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🌾 Whole Wheat Atta - 5 KG</div>
+                            <div class="product-desc">100% pure stone-ground chakki whole wheat flour for ultra soft rotis.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹260</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Toor Dal -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge blue">ESSENTIAL</span>
+                        <img src="https://images.unsplash.com/photo-1547058881-aa0edd92aab3?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🍛 Premium Toor Dal - 1 KG</div>
+                            <div class="product-desc">Unpolished, protein-dense pulses sorted cleanly for wholesome family meals.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹175</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Herbal Soap -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge purple">ORGANIC</span>
+                        <img src="https://images.unsplash.com/photo-1607006342411-9a3363e63945?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🧼 Herbal Bath Soap (Pack of 3)</div>
+                            <div class="product-desc">Enriched with natural Neem, Turmeric, and Aloe Vera extracts for healthy skin protection.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹145</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7: Bamboo Toothbrushes -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge blue">ECO-FRIENDLY</span>
+                        <img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🪥 Bamboo Toothbrush (Pack of 4)</div>
+                            <div class="product-desc">100% biodegradable organic handles coupled with charcoal infused soft bristles.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹199</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8: Smart LED Bulb -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge purple">TOP RATED</span>
+                        <img src="https://images.unsplash.com/photo-1550537687-c91072c4792d?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🔌 Smart LED Bulb 9W</div>
+                            <div class="product-desc">Energy-saving bright white light built to optimize dynamic household consumption.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹249</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9: Coconut Hair Oil -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge">100% PURE</span>
+                        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🧴 Pure Coconut Hair Oil - 500ml</div>
+                            <div class="product-desc">Naturally processed, cold-pressed premium hair oil for deeper nourishment.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹210</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10: Assam Tea Powder -->
+                <div class="product">
+                    <div class="product-wrapper">
+                        <span class="badge red">LIMITED STOCK</span>
+                        <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-details">
+                            <div class="product-title">🍵 Assam CTC Tea Powder - 500g</div>
+                            <div class="product-desc">Rich, strong aroma directly sourced from premium handpicked Assam tea estates.</div>
+                        </div>
+                        <div>
+                            <div class="price">₹165</div>
+                            <button class="buy-btn">View Product</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
+    <!-- CONTACT PAGE -->
     <div id="contact" class="page">
         <div class="card">
             <h2>Contact Us</h2>
@@ -294,14 +461,11 @@ function showPage(id) {
                 WhatsApp Us
             </a>
             <br><br>
-            <iframe 
-                src="https://maps.google.com/maps?q=11.584914462911676,78.74970940723274&z=15&output=embed" 
-                width="100%" 
-                height="300">
-            </iframe>
+            <iframe src="https://maps.google.com/maps?q=11.584914462911676,78.74970940723274&z=15&output=embed" width="100%" height="300"></iframe>
         </div>
     </div>
 
+    <!-- POLICIES PAGE -->
     <div id="policies" class="page">
         <div class="card">
             <div class="policy-section">
@@ -330,6 +494,7 @@ function showPage(id) {
         </div>
     </div>
 
+    <!-- SHIPPING PAGE -->
     <div id="shipping" class="page">
         <div class="card">
             <h2>Shipping & Delivery Policy</h2>
@@ -351,6 +516,6 @@ function showPage(id) {
 
 st.components.v1.html(
     html_code,
-    height=1000,
+    height=1350,
     scrolling=True
 )
