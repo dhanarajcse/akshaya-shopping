@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Akshaya Shopping", layout="wide")
+st.set_page_config(page_title="Akshaya Shopping, Thalaivasal", layout="wide")
 
 html_code = """
 <!DOCTYPE html>
@@ -178,14 +178,14 @@ function showPage(id) {
 
             <br/>
 
-            <p>📞 +91-9876543210</p>
+            <p>📞 +91-9843051071</p>
             <p>📧 info@akshayashopping.com</p>
             <p>📍 Akshaya Shopping</p>
             <p>📍 Salem, Tamil Nadu</p>
 
             <br/>
 
-            <a href="https://wa.me/919876543210"
+            <a href="https://wa.me/919843051071"
                target="_blank"
                style="
                display:inline-block;
@@ -202,7 +202,7 @@ function showPage(id) {
 
             <div style="margin-top:10px;">
                 <iframe
-                    src="https://www.google.com/maps?q=11.664325,78.146011&z=14&output=embed"
+                    src="https://www.google.com/maps?q=11.585151235000122,78.74966547973798&z=14&output=embed"
                     width="100%"
                     height="250">
                 </iframe>
