@@ -93,6 +93,8 @@ html_code = """
 
     .policy-section:last-child {
         border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     footer{
@@ -227,12 +229,12 @@ function showPage(id) {
     <a onclick="showPage('home')">Home</a>
     <a onclick="showPage('products')">Products</a>
     <a onclick="showPage('contact')">Contact</a>
-    <a onclick="showPage('policies')">Policies</a>
-    <a onclick="showPage('shipping')">Shipping</a>
+    <a onclick="showPage('privacy-policy')">Privacy Policy</a>
 </nav>
 
 <div class="container">
 
+    <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="card">
             <h2>Welcome to Akshaya Shopping</h2>
@@ -255,6 +257,7 @@ function showPage(id) {
         </div>
     </div>
 
+    <!-- PRODUCTS PAGE -->
     <div id="products" class="page">
         <div class="card">
             <h2 style="text-align:center; font-size:32px; margin-bottom:10px;">🛒 Featured Products</h2>
@@ -262,6 +265,7 @@ function showPage(id) {
 
             <div class="products-grid">
                 
+                <!-- Product 1: Rice -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">BEST SELLER</span>
@@ -279,6 +283,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 2: Sunflower Oil -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">HOT DEAL</span>
@@ -296,6 +301,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 3: Coffee Powder -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">NEW</span>
@@ -313,6 +319,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 4: Whole Wheat Atta -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">POPULAR</span>
@@ -330,6 +337,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 5: Toor Dal -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ESSENTIAL</span>
@@ -347,6 +355,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 6: Herbal Soap -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">ORGANIC</span>
@@ -364,6 +373,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 7: Bamboo Toothbrushes -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ECO-FRIENDLY</span>
@@ -381,6 +391,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 8: Smart LED Bulb -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">TOP RATED</span>
@@ -398,6 +409,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 9: Coconut Hair Oil -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">100% PURE</span>
@@ -415,6 +427,7 @@ function showPage(id) {
                     </div>
                 </div>
 
+                <!-- Product 10: Assam Tea Powder -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">LIMITED STOCK</span>
@@ -436,6 +449,7 @@ function showPage(id) {
         </div>
     </div>
 
+    <!-- CONTACT PAGE -->
     <div id="contact" class="page">
         <div class="card">
             <h2>Contact Us</h2>
@@ -452,7 +466,8 @@ function showPage(id) {
         </div>
     </div>
 
-    <div id="policies" class="page">
+    <!-- COMBINED PRIVACY POLICY PAGE -->
+    <div id="privacy-policy" class="page">
         <div class="card">
             <div class="policy-section">
                 <h2>Privacy Policy</h2>
@@ -477,16 +492,14 @@ function showPage(id) {
                 <p>Refunds will be processed within 7 business days after approval.</p>
                 <p>Damaged or incorrect products must be reported within 48 hours of delivery.</p>
             </div>
-        </div>
-    </div>
 
-    <div id="shipping" class="page">
-        <div class="card">
-            <h2>Shipping & Delivery Policy</h2>
-            <br>
-            <p>Orders are processed within 1 to 3 business days.</p>
-            <p>Delivery timelines depend on customer location and courier service.</p>
-            <p>Customers will be informed in case of shipment delays.</p>
+            <div class="policy-section">
+                <h2>Shipping & Delivery Policy</h2>
+                <br>
+                <p>Orders are processed within 1 to 3 business days.</p>
+                <p>Delivery timelines depend on customer location and courier service.</p>
+                <p>Customers will be informed in case of shipment delays.</p>
+            </div>
         </div>
     </div>
 </div>
