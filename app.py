@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="JP Aadhitya Consultancy", layout="wide")
+st.set_page_config(page_title="Akshaya Shopping", layout="wide")
 
 html_code = """
 <!DOCTYPE html>
@@ -22,14 +22,14 @@ html_code = """
     }
 
     header {
-        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        background: linear-gradient(135deg, #ff6b35, #f7931e);
         color: white;
         padding: 20px;
         text-align: center;
     }
 
     nav {
-        background: #34495e;
+        background: #2c3e50;
         padding: 10px;
         text-align: center;
     }
@@ -42,7 +42,7 @@ html_code = """
     }
 
     nav a:hover {
-        color: #1abc9c;
+        color: #f39c12;
     }
 
     .container {
@@ -70,6 +70,11 @@ html_code = """
     iframe {
         border-radius: 10px;
     }
+
+    .highlight {
+        color: #e67e22;
+        font-weight: bold;
+    }
 </style>
 
 <script>
@@ -87,68 +92,81 @@ function showPage(id) {
 <body>
 
 <header>
-    <h1>J P Aadhitya Murugan</h1>
-    <p>Real Estate | Insurance | Investment Consultant</p>
+    <h1>🛍️ Akshaya Shopping</h1>
+    <p>Your One-Stop Destination for Quality Products</p>
 </header>
 
 <nav>
     <a onclick="showPage('about')">Home</a>
-    <a onclick="showPage('services')">Services</a>
+    <a onclick="showPage('products')">Products</a>
     <a onclick="showPage('contact')">Contact</a>
 </nav>
 
 <div class="container">
 
-    <!-- ABOUT -->
+    <!-- HOME -->
     <div id="about" class="page active">
         <div class="card">
-            <h2>About</h2>
+            <h2>Welcome to Akshaya Shopping</h2>
             <br/>
+
             <p>
-                J P Aadhitya Murugan, M.Sc, B.Ed., is a dedicated and experienced professional 
-                specializing in real estate, insurance planning, and investment consulting. 
-                With a strong academic background and a commitment to excellence, he provides 
-                reliable and result-oriented guidance to individuals and families.
+                <span class="highlight">Akshaya Shopping</span> is committed to providing
+                high-quality products at affordable prices. We offer a wide range of
+                household items, groceries, fashion accessories, electronics, and daily essentials.
             </p>
-             <br/>
-            
+
+            <br/>
+
             <p>
-                He believes in building long-term relationships based on trust, transparency, 
-                and professionalism. His approach focuses on understanding each client’s unique 
-                needs and delivering customized solutions that ensure financial security and growth.
+                Our mission is to make shopping simple, convenient, and enjoyable for every customer.
+                We focus on quality, customer satisfaction, and reliable service.
             </p>
-              <br/>
+
+            <br/>
+
             <p>
-                With in-depth knowledge of market trends and financial planning, he empowers 
-                clients to make confident decisions in property investments, insurance coverage, 
-                and wealth management.
+                Whether you're looking for everyday essentials or special products,
+                Akshaya Shopping is here to serve your needs with trust and value.
             </p>
         </div>
     </div>
 
-    <!-- SERVICES -->
-    <div id="services" class="page">
+    <!-- PRODUCTS -->
+    <div id="products" class="page">
         <div class="card">
-            <h2>Services</h2>
-<br/>
-            <h3>🏡 Real Estate Services</h3>
-            <p>
-                We provide complete support for buying, selling, and investing in properties.
-                From identifying the right opportunities to handling documentation, we ensure
-                a smooth and transparent process.
-            </p>
-             <br/>
+            <h2>Our Product Categories</h2>
 
-            <h3>📄 Insurance Planning & Policies</h3>
+            <br/>
+
+            <h3>🛒 Grocery & Daily Essentials</h3>
             <p>
-                We offer tailored insurance solutions to protect your future and secure your family.
-                Our services include policy selection and choosing the right coverage.
+                Fresh groceries, packaged foods, beverages, personal care products,
+                and household necessities.
             </p>
-              <br/>
-            <h3>💹 Investment & Financial Guidance</h3>
+
+            <br/>
+
+            <h3>👕 Fashion & Accessories</h3>
             <p>
-                We help clients build and manage their wealth through strategic financial planning
-                and long-term investment strategies.
+                Men's, women's, and children's clothing along with footwear,
+                bags, and fashion accessories.
+            </p>
+
+            <br/>
+
+            <h3>📱 Electronics & Gadgets</h3>
+            <p>
+                Mobile accessories, small electronic devices,
+                and useful gadgets for everyday life.
+            </p>
+
+            <br/>
+
+            <h3>🏠 Home & Kitchen</h3>
+            <p>
+                Kitchen appliances, cookware, storage solutions,
+                home décor, and utility products.
             </p>
         </div>
     </div>
@@ -156,31 +174,40 @@ function showPage(id) {
     <!-- CONTACT -->
     <div id="contact" class="page">
         <div class="card">
-            <h2>Contact</h2>
-            <br/>
-            <p>📞 +91-8667250719</p>
-            <p>📧 jprajkamal@gmail.com</p>
-            <p>📍 Pethanaickenpalayam, Attur</p>
-            <p>📍 Salem District, Tamil Nadu</p>
+            <h2>Contact Us</h2>
 
-         <a href="https://wa.me/918667250719" target="_blank" style="
-            display:inline-block;
-            background:#25D366;
-            color:white;
-            padding:10px 15px;
-            border-radius:6px;
-            text-decoration:none;
-            font-weight:bold;">
-            💬 Chat on WhatsApp
-        </a>
-  <br/> <br/>
+            <br/>
+
+            <p>📞 +91-9876543210</p>
+            <p>📧 info@akshayashopping.com</p>
+            <p>📍 Akshaya Shopping</p>
+            <p>📍 Salem, Tamil Nadu</p>
+
+            <br/>
+
+            <a href="https://wa.me/919876543210"
+               target="_blank"
+               style="
+               display:inline-block;
+               background:#25D366;
+               color:white;
+               padding:10px 15px;
+               border-radius:6px;
+               text-decoration:none;
+               font-weight:bold;">
+               💬 Chat on WhatsApp
+            </a>
+
+            <br/><br/>
+
             <div style="margin-top:10px;">
                 <iframe
-                    src="https://www.google.com/maps?q=11.648245,78.510139&z=14&output=embed"
+                    src="https://www.google.com/maps?q=11.664325,78.146011&z=14&output=embed"
                     width="100%"
-                    height="200">
+                    height="250">
                 </iframe>
             </div>
+
         </div>
     </div>
 
@@ -190,5 +217,4 @@ function showPage(id) {
 </html>
 """
 
-# Fixed height → NO SCROLLBAR
 st.components.v1.html(html_code, height=700, scrolling=False)
