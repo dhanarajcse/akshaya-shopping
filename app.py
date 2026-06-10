@@ -233,7 +233,6 @@ function showPage(id) {
 
 <div class="container">
 
-    <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="card">
             <h2>Welcome to Akshaya Shopping</h2>
@@ -256,7 +255,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- PRODUCTS PAGE (10 PRODUCTS) -->
     <div id="products" class="page">
         <div class="card">
             <h2 style="text-align:center; font-size:32px; margin-bottom:10px;">🛒 Featured Products</h2>
@@ -264,7 +262,6 @@ function showPage(id) {
 
             <div class="products-grid">
                 
-                <!-- Product 1: Rice -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">BEST SELLER</span>
@@ -282,7 +279,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 2: Sunflower Oil -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">HOT DEAL</span>
@@ -300,7 +296,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 3: Coffee Powder -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">NEW</span>
@@ -318,7 +313,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 4: Whole Wheat Atta -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">POPULAR</span>
@@ -336,7 +330,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 5: Toor Dal -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ESSENTIAL</span>
@@ -354,11 +347,10 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 6: Herbal Soap -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">ORGANIC</span>
-                        <img src="https://images.unsplash.com/photo-1607006342411-9a3363e63945?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1605264964528-06403738d6dc?auto=format&fit=crop&w=600&q=80">
                     </div>
                     <div class="product-content">
                         <div class="product-details">
@@ -372,7 +364,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 7: Bamboo Toothbrushes -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ECO-FRIENDLY</span>
@@ -390,11 +381,10 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 8: Smart LED Bulb -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">TOP RATED</span>
-                        <img src="https://images.unsplash.com/photo-1550537687-c91072c4792d?auto=format&fit=crop&w=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=80">
                     </div>
                     <div class="product-content">
                         <div class="product-details">
@@ -408,7 +398,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 9: Coconut Hair Oil -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">100% PURE</span>
@@ -426,7 +415,6 @@ function showPage(id) {
                     </div>
                 </div>
 
-                <!-- Product 10: Assam Tea Powder -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">LIMITED STOCK</span>
@@ -448,7 +436,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- CONTACT PAGE -->
     <div id="contact" class="page">
         <div class="card">
             <h2>Contact Us</h2>
@@ -465,7 +452,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- POLICIES PAGE -->
     <div id="policies" class="page">
         <div class="card">
             <div class="policy-section">
@@ -494,7 +480,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- SHIPPING PAGE -->
     <div id="shipping" class="page">
         <div class="card">
             <h2>Shipping & Delivery Policy</h2>
