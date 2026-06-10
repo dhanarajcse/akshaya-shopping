@@ -11,6 +11,8 @@ html_code = """
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <style>
     *{
         margin:0;
@@ -203,10 +205,73 @@ html_code = """
         position:relative;
     }
 
+    .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .cart-table th, .cart-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .cart-table th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+    }
+
+    .cart-total-container {
+        text-align: right;
+        margin-top: 20px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #ff6b35;
+    }
+
+    .checkout-form {
+        margin-top: 30px;
+        border-top: 2px dashed #ddd;
+        padding-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 15px;
+    }
+
+    .remove-btn {
+        background: #e74c3c;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .remove-btn:hover { background: #c0392b; }
+
     iframe { border: none; border-radius: 10px; }
 </style>
 
 <script>
+let cart = [];
+let totalAmountInINR = 0; // Tracks running grand total globally
+
 function showPage(id) {
     var pages = document.getElementsByClassName("page");
     for(var i=0; i<pages.length; i++) {
@@ -214,6 +279,115 @@ function showPage(id) {
     }
     document.getElementById(id).classList.add("active");
     window.scrollTo(0, 0);
+    
+    if (id === 'checkout') {
+        renderCart();
+    }
+}
+
+function addToCart(title, price) {
+    const existingItem = cart.find(item => item.title === title);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ title: title, price: price, quantity: 1 });
+    }
+    updateCartCount();
+    alert(title + " added to your cart successfully!");
+}
+
+function updateCartCount() {
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById("cart-nav-link").innerText = "🛒 Cart (" + count + ")";
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartCount();
+    renderCart();
+}
+
+function renderCart() {
+    const cartBody = document.getElementById("cart-items-body");
+    const cartContainer = document.getElementById("cart-content-wrapper");
+    const emptyMsg = document.getElementById("empty-cart-msg");
+    
+    if (cart.length === 0) {
+        cartContainer.style.display = "none";
+        emptyMsg.style.display = "block";
+        totalAmountInINR = 0;
+        return;
+    }
+    
+    cartContainer.style.display = "block";
+    emptyMsg.style.display = "none";
+    cartBody.innerHTML = "";
+    
+    totalAmountInINR = 0;
+    
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        totalAmountInINR += itemTotal;
+        
+        const row = `<tr>
+            <td>${item.title}</td>
+            <td>₹${item.price}</td>
+            <td>${item.quantity}</td>
+            <td>₹${itemTotal}</td>
+            <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+        </tr>`;
+        cartBody.innerHTML += row;
+    });
+    
+    document.getElementById("cart-grand-total").innerText = "₹" + totalAmountInINR;
+}
+
+function processCheckout(event) {
+    event.preventDefault();
+    if (cart.length === 0) {
+        alert("Your shopping cart is completely empty!");
+        return;
+    }
+    
+    const name = document.getElementById("cust-name").value;
+    const phone = document.getElementById("cust-phone").value;
+    const address = document.getElementById("cust-address").value;
+    const paymentMethod = document.getElementById("cust-payment").value;
+
+    if (paymentMethod === "Cash on Delivery (COD)") {
+        alert("Thank you " + name + "! Your COD order has been placed successfully.");
+        completeOrderCleanup();
+    } else {
+        // Trigger Razorpay Standard Checkout Flow
+        var options = {
+            "key": "rzp_test_placeholderKey", // Replace with your real live or test Key ID from Razorpay Dashboard
+            "amount": totalAmountInINR * 100, // Amount in subunits (Paise). ₹100 = 10000 Paise
+            "currency": "INR",
+            "name": "Akshaya Shopping",
+            "description": "Payment for Merchant Order Secure Portal",
+            "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=100&q=80",
+            "handler": function (response){
+                alert("Payment Successful!\\nRazorpay Transaction ID: " + response.razorpay_payment_id + "\\nYour order has been captured.");
+                completeOrderCleanup();
+            },
+            "prefill": {
+                "name": name,
+                "contact": phone
+            },
+            "theme": {
+                "color": "#ff6b35"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+}
+
+function completeOrderCleanup() {
+    cart = [];
+    updateCartCount();
+    document.getElementById("checkout-form-element").reset();
+    showPage('home');
 }
 </script>
 </head>
@@ -230,11 +404,11 @@ function showPage(id) {
     <a onclick="showPage('products')">Products</a>
     <a onclick="showPage('contact')">Contact</a>
     <a onclick="showPage('privacy-policy')">Privacy Policy</a>
+    <a onclick="showPage('checkout')" id="cart-nav-link" style="font-weight: bold; color: #f39c12;">🛒 Cart (0)</a>
 </nav>
 
 <div class="container">
 
-    <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="card">
             <h2>Welcome to Akshaya Shopping</h2>
@@ -257,7 +431,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- PRODUCTS PAGE -->
     <div id="products" class="page">
         <div class="card">
             <h2 style="text-align:center; font-size:32px; margin-bottom:10px;">🛒 Featured Products</h2>
@@ -265,7 +438,6 @@ function showPage(id) {
 
             <div class="products-grid">
                 
-                <!-- Product 1: Rice -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">BEST SELLER</span>
@@ -278,12 +450,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹450</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Premium Rice - 5 KG', 450)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2: Sunflower Oil -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">HOT DEAL</span>
@@ -296,12 +467,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹160</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Sunflower Oil - 1L', 160)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3: Coffee Powder -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">NEW</span>
@@ -314,12 +484,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹220</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Premium Filter Coffee', 220)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4: Whole Wheat Atta -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">POPULAR</span>
@@ -332,12 +501,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹260</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Whole Wheat Atta - 5 KG', 260)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 5: Toor Dal -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ESSENTIAL</span>
@@ -350,12 +518,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹175</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Premium Toor Dal - 1 KG', 175)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 6: Herbal Soap -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">ORGANIC</span>
@@ -368,12 +535,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹145</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Herbal Bath Soap (Pack of 3)', 145)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 7: Bamboo Toothbrushes -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ECO-FRIENDLY</span>
@@ -386,12 +552,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹199</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Bamboo Toothbrush (Pack of 4)', 199)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 8: Smart LED Bulb -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">TOP RATED</span>
@@ -404,12 +569,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹249</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Smart LED Bulb 9W', 249)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 9: Coconut Hair Oil -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">100% PURE</span>
@@ -422,12 +586,11 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹210</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Pure Coconut Hair Oil - 500ml', 210)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 10: Assam Tea Powder -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">LIMITED STOCK</span>
@@ -440,7 +603,7 @@ function showPage(id) {
                         </div>
                         <div>
                             <div class="price">₹165</div>
-                            <button class="buy-btn">View Product</button>
+                            <button class="buy-btn" onclick="addToCart('Assam CTC Tea Powder - 500g', 165)">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -449,7 +612,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- CONTACT PAGE -->
     <div id="contact" class="page">
         <div class="card">
             <h2>Contact Us</h2>
@@ -466,7 +628,6 @@ function showPage(id) {
         </div>
     </div>
 
-    <!-- COMBINED PRIVACY POLICY PAGE -->
     <div id="privacy-policy" class="page">
         <div class="card">
             <div class="policy-section">
@@ -502,6 +663,67 @@ function showPage(id) {
             </div>
         </div>
     </div>
+
+    <div id="checkout" class="page">
+        <div class="card">
+            <h2>🛒 Shopping Cart & Checkout</h2>
+            
+            <div id="empty-cart-msg" style="margin-top: 20px; text-align: center; color: #777;">
+                <p style="font-size: 18px;">Your cart is empty.</p>
+                <br>
+                <button class="buy-btn" style="max-width: 200px;" onclick="showPage('products')">Go Shopping</button>
+            </div>
+
+            <div id="cart-content-wrapper" style="display: none;">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product Details</th>
+                            <th>Unit Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-items-body">
+                    </tbody>
+                </table>
+
+                <div class="cart-total-container">
+                    Grand Total: <span id="cart-grand-total">₹0</span>
+                </div>
+
+                <div class="checkout-form">
+                    <h3>📍 Delivery & Payment Gateway</h3>
+                    <br>
+                    <form id="checkout-form-element" onsubmit="processCheckout(event)">
+                        <div class="form-group">
+                            <label for="cust-name">Full Name *</label>
+                            <input type="text" id="cust-name" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="cust-phone">Contact Mobile Number *</label>
+                            <input type="tel" id="cust-phone" required placeholder="Enter 10-digit mobile number">
+                        </div>
+                        <div class="form-group">
+                            <label for="cust-address">Complete Shipping Address *</label>
+                            <textarea id="cust-address" rows="3" required placeholder="Street name, landmark, city, pincode"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="cust-payment">Select Payment Method</label>
+                            <select id="cust-payment">
+                                <option value="Razorpay Portal">Online Secure Payment (UPI, Cards, NetBanking)</option>
+                                <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+                            </select>
+                        </div>
+                        <br>
+                        <button type="submit" class="buy-btn" style="font-size: 18px; padding: 15px;">Proceed to Secure Checkout</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -514,6 +736,6 @@ function showPage(id) {
 
 st.components.v1.html(
     html_code,
-    height=1350,
+    height=1450,
     scrolling=True
 )
