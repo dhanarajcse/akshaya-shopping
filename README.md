@@ -44,7 +44,7 @@ pip install streamlit
 streamlit run app.py
 ```
 
-5. Open your browser and visit:
+5. Open your browser and visit
 
 ```text
 http://localhost:8501
@@ -54,13 +54,13 @@ http://localhost:8501
 
 **Akshaya Shopping**
 
-📞 Phone: +91-9876543210
+📞 Phone: +91-9843051071
 
 📧 Email: [info@akshayashopping.com](mailto:info@akshayashopping.com)
 
 📍 Location: Salem, Tamil Nadu
 
-💬 WhatsApp: https://wa.me/919876543210
+💬 WhatsApp: https://wa.me/919843051071
 
 ## 🌐 Live Demo
 
