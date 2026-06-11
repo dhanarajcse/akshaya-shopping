@@ -11,6 +11,7 @@ html_code = """
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Razorpay Checkout Script Integration -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <style>
@@ -30,12 +31,12 @@ html_code = """
         background:linear-gradient(135deg,#27ae60,#2ecc71);
         color:white;
         text-align:center;
-        padding:30px 20px;
+        padding:35px 20px 25px 20px;
     }
 
-    header h1{
-        margin-bottom:8px;
-        font-size: 2.5rem;
+    .logo-container {
+        max-width: 350px;
+        margin: 0 auto;
     }
 
     nav{
@@ -394,8 +395,30 @@ function completeOrderCleanup() {
 <body>
 
 <header>
-    <h1>🛍️ Akshaya Shopping</h1>
-    <p>Your One-Stop Destination for Quality Products</p>
+    <!-- Vector Custom Branding Logo -->
+    <div class="logo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 100" width="100%" height="auto">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="100%" stop-color="#e8f8f0" />
+            </linearGradient>
+            <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2ecc71" />
+              <stop offset="100%" stop-color="#27ae60" />
+            </linearGradient>
+          </defs>
+          <g transform="translate(10, 5)">
+            <path d="M35,35 C35,18 55,18 55,35" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <rect x="20" y="35" width="50" height="50" rx="12" fill="url(#logoGrad)" />
+            <path d="M45,45 C55,45 55,68 45,75 C35,68 35,45 45,45 Z" fill="url(#leafGrad)" />
+            <path d="M45,50 L45,70" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+          </g>
+          <text x="90" y="75" font-family="'Segoe UI', sans-serif" font-weight="800" font-size="32" fill="#ffffff" letter-spacing="1">AKSHAYA SHOPPING</text>
+       
+        </svg>
+    </div>
+    <p style="margin-top: 8px;">Your One-Stop Destination for Quality Products</p>
 </header>
 
 <nav>
@@ -408,6 +431,7 @@ function completeOrderCleanup() {
 
 <div class="container">
 
+    <!-- HOME PAGE -->
     <div id="home" class="page active">
         <div class="card">
             <h2>Welcome to Akshaya Shopping</h2>
@@ -430,6 +454,7 @@ function completeOrderCleanup() {
         </div>
     </div>
 
+    <!-- PRODUCTS PAGE -->
     <div id="products" class="page">
         <div class="card">
             <h2 style="text-align:center; font-size:32px; margin-bottom:10px;">🛒 Featured Products</h2>
@@ -437,6 +462,7 @@ function completeOrderCleanup() {
 
             <div class="products-grid">
                 
+                <!-- Product 1 -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">BEST SELLER</span>
@@ -454,6 +480,7 @@ function completeOrderCleanup() {
                     </div>
                 </div>
 
+                <!-- Product 2 -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge red">HOT DEAL</span>
@@ -471,6 +498,7 @@ function completeOrderCleanup() {
                     </div>
                 </div>
 
+                <!-- Product 3 -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">NEW</span>
@@ -488,6 +516,7 @@ function completeOrderCleanup() {
                     </div>
                 </div>
 
+                <!-- Product 4 -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge">POPULAR</span>
@@ -505,6 +534,7 @@ function completeOrderCleanup() {
                     </div>
                 </div>
 
+                <!-- Product 5 -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge blue">ESSENTIAL</span>
@@ -522,6 +552,7 @@ function completeOrderCleanup() {
                     </div>
                 </div>
 
+                <!-- Product 6 -->
                 <div class="product">
                     <div class="product-wrapper">
                         <span class="badge purple">ORGANIC</span>
@@ -538,79 +569,11 @@ function completeOrderCleanup() {
                         </div>
                     </div>
                 </div>
-
-                <div class="product">
-                    <div class="product-wrapper">
-                        <span class="badge blue">ECO-FRIENDLY</span>
-                        <img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=600&q=80">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-details">
-                            <div class="product-title">🪥 Bamboo Toothbrush (Pack of 4)</div>
-                            <div class="product-desc">100% biodegradable organic handles coupled with charcoal infused soft bristles.</div>
-                        </div>
-                        <div>
-                            <div class="price">₹199</div>
-                            <button class="buy-btn" onclick="addToCart('Bamboo Toothbrush (Pack of 4)', 199)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <div class="product-wrapper">
-                        <span class="badge purple">TOP RATED</span>
-                        <img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=80">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-details">
-                            <div class="product-title">🔌 Smart LED Bulb 9W</div>
-                            <div class="product-desc">Energy-saving bright white light built to optimize dynamic household consumption.</div>
-                        </div>
-                        <div>
-                            <div class="price">₹249</div>
-                            <button class="buy-btn" onclick="addToCart('Smart LED Bulb 9W', 249)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <div class="product-wrapper">
-                        <span class="badge">100% PURE</span>
-                        <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=600&q=80">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-details">
-                            <div class="product-title">🧴 Pure Coconut Hair Oil - 500ml</div>
-                            <div class="product-desc">Naturally processed, cold-pressed premium hair oil for deeper nourishment.</div>
-                        </div>
-                        <div>
-                            <div class="price">₹210</div>
-                            <button class="buy-btn" onclick="addToCart('Pure Coconut Hair Oil - 500ml', 210)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <div class="product-wrapper">
-                        <span class="badge red">LIMITED STOCK</span>
-                        <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80">
-                    </div>
-                    <div class="product-content">
-                        <div class="product-details">
-                            <div class="product-title">🍵 Assam CTC Tea Powder - 500g</div>
-                            <div class="product-desc">Rich, strong aroma directly sourced from premium handpicked Assam tea estates.</div>
-                        </div>
-                        <div>
-                            <div class="price">₹165</div>
-                            <button class="buy-btn" onclick="addToCart('Assam CTC Tea Powder - 500g', 165)">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
 
+    <!-- CONTACT PAGE -->
     <div id="contact" class="page">
         <div class="card">
             <h2>Contact Us</h2>
@@ -627,6 +590,7 @@ function completeOrderCleanup() {
         </div>
     </div>
 
+    <!-- PRIVACY POLICY PAGE -->
     <div id="privacy-policy" class="page">
         <div class="card">
             <div class="policy-section">
@@ -663,6 +627,7 @@ function completeOrderCleanup() {
         </div>
     </div>
 
+    <!-- CART / CHECKOUT PAGE -->
     <div id="checkout" class="page">
         <div class="card">
             <h2>🛒 Shopping Cart & Checkout</h2>
@@ -692,6 +657,7 @@ function completeOrderCleanup() {
                     Grand Total: <span id="cart-grand-total">₹0</span>
                 </div>
 
+                <!-- Checkout Shipping Section Form -->
                 <div class="checkout-form">
                     <h3>📍 Delivery & Payment Gateway</h3>
                     <br>
