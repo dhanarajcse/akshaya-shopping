@@ -27,7 +27,7 @@ html_code = """
     }
 
     header{
-        background:linear-gradient(135deg,#ff6b35,#f7931e);
+        background:linear-gradient(135deg,#27ae60,#2ecc71);
         color:white;
         text-align:center;
         padding:30px 20px;
@@ -83,7 +83,7 @@ html_code = """
     }
 
     .highlight{
-        color:#e67e22;
+        color:#27ae60;
         font-weight:bold;
     }
 
@@ -172,7 +172,7 @@ html_code = """
         padding:12px;
         border:none;
         border-radius:10px;
-        background:linear-gradient(135deg,#ff6b35,#f7931e);
+        background:linear-gradient(135deg,#27ae60,#2ecc71);
         color:white;
         font-weight:600;
         cursor:pointer;
@@ -270,7 +270,7 @@ html_code = """
 
 <script>
 let cart = [];
-let totalAmountInINR = 0; // Tracks running grand total globally
+let totalAmountInINR = 0;
 
 function showPage(id) {
     var pages = document.getElementsByClassName("page");
@@ -358,10 +358,9 @@ function processCheckout(event) {
         alert("Thank you " + name + "! Your COD order has been placed successfully.");
         completeOrderCleanup();
     } else {
-        // Trigger Razorpay Standard Checkout Flow
         var options = {
-            "key": "rzp_test_placeholderKey", // Replace with your real live or test Key ID from Razorpay Dashboard
-            "amount": totalAmountInINR * 100, // Amount in subunits (Paise). ₹100 = 10000 Paise
+            "key": "rzp_test_placeholderKey", 
+            "amount": totalAmountInINR * 100, 
             "currency": "INR",
             "name": "Akshaya Shopping",
             "description": "Payment for Merchant Order Secure Portal",
@@ -375,7 +374,7 @@ function processCheckout(event) {
                 "contact": phone
             },
             "theme": {
-                "color": "#ff6b35"
+                "color": "#27ae60"
             }
         };
         var rzp1 = new Razorpay(options);
